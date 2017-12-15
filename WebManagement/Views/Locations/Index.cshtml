@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebManagement.Models.LocationRef>
+
+@{
+    ViewData["Title"] = "Locations";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@($"{ViewData["returnUrl"]}?location={item.Name}")">@item.DisplayName</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

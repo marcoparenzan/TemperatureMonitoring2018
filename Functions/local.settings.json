@@ -1,0 +1,20 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_SLOT_NAME": "Production",
+    "tm2018_STORAGE": "<your connection string>",
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "WEBSITE_ENCRYPTION_KEY": "<your encryption key>",
+    "ScmType": "None",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "tm2018-sea_events_IOTHUB": "v",
+    "location": "southeastasia",
+    "AzureWebJobsDashboard": "<your connection string>",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "<your connection string>",
+    "WEBSITE_CONTENTSHARE": "tm2018-seaab0c",
+    "WEBSITE_SITE_NAME": "tm2018-sea",
+    "AzureWebJobsStorage": "<your connection string>",
+    "AlertNotificationUrl": "<your url>"
+  }
+}

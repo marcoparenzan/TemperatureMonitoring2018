@@ -1,0 +1,85 @@
+﻿@model DevicePage
+@{
+    ViewData["Title"] = $"Devices in {Model.Location}";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a href="@Url.Action("Create", new { location = Model.Location })">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                DeviceId
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Connection State
+            </th>
+            <th>
+                Device Type
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr data-deviceid="@item.DeviceId" data-location="@Model.Location">
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeviceId)
+                </td>
+                <td class="status"></td>
+                <td class="connectionState"></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeviceType)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DeviceId, location = Model.Location }) |
+                    @Html.ActionLink("Control", "Control", new { id = item.DeviceId, location = Model.Location }) |
+                    @Html.ActionLink("Deploy", "Deploy", new { id = item.DeviceId, location = Model.Location })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section scripts {
+
+    <script type="text/javascript">
+
+
+        $(function () {
+
+            var tbody = $("table tbody");
+
+            setInterval(function () {
+
+                tbody.find("tr").each(function (i, item) {
+
+                    var target = $(item);
+
+                    var deviceid = target.data("deviceid");
+                    var location = target.data("location");
+
+                    $.getJSON('@Url.Action("Info", new { id = "__id__", location = "__location__"})'
+                        .replace("__id__", deviceid)
+                        .replace("__location__", location)
+                    ).done(function (response) {
+
+                        target.find(".status").html(response.status);
+                        target.find(".connectionState").html(response.connectionState);
+
+                    });
+
+                });
+
+            }, 10000);
+
+        });
+
+    </script>
+}

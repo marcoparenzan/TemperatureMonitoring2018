@@ -1,0 +1,13 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "myIoTHubMessage",
+      "direction": "in",
+      "path": "tm2018-sea",
+      "connection": "tm2018-sea_events_IOTHUB",
+      "consumerGroup": "$Default"
+    }
+  ],
+  "disabled": false
+}

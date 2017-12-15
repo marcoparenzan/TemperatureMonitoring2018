@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FakeDevice": {
+      "commandName": "Project",
+      "commandLineArgs": "temperature tm2018-sea.azure-devices.net dev1 FPwM8u1xKP6UNEcVh7mjf5lPAsIkgXkcWrU9zSKw7W8="
+    }
+  }
+}
